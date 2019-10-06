@@ -1,0 +1,28 @@
+#include <windows.h>
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+ZL ICON "TowerOfMinos.ico"
+1 VERSIONINFO
+	FILEVERSION     1,0,0,0
+	PRODUCTVERSION  1,0,0,0
+	FILEOS          VOS_NT_WINDOWS32
+	FILETYPE        VFT_APP
+{
+	BLOCK "StringFileInfo"
+	{
+		BLOCK "040904b0"
+		{
+			VALUE "FileDescription", "Tower of Minos"
+			VALUE "FileVersion", "1.0"
+			VALUE "ProductName", "Tower of Minos"
+			VALUE "ProductVersion", "1.0"
+			VALUE "InternalName", "Tower of Minos"
+			VALUE "OriginalFilename", "Tower of Minos.exe"
+			//VALUE "CompanyName", ""
+			//VALUE "LegalCopyright", "(C) 2019"
+		}
+	}
+	BLOCK "VarFileInfo"
+	{
+		VALUE "Translation", 0x409, 1252
+	}
+}
