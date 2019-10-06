@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Altar War</title>
+	<style type="text/css">:fullscreen{background:#000;margin:0!important}:full-screen{background:#000;margin:0!important}:-webkit-full-screen{background:#000;margin:0!important}:-moz-full-screen{background:#000;margin:0!important}</style>
+</head>
+<body style="background:#222;color:#BBB;font-family:sans-serif">
+	<h1 style="text-align:center">Tower of Minos</h1>
+	<h2 id="zl_status" style="text-align:center">Loading Game...</h2>
+	<canvas id="zl_canvas" style="display:block;margin:0 auto 10px" oncontextmenu="event.preventDefault()" width="0" height="0"></canvas>
+	<div id="zl_control" style="text-align:center;display:none"><input type="button" value="Switch Fullscreen" onclick="try{ZL.SetFullscreen(true)}catch(e){}"></div>
+	<div style="text-align:center;margin:20px">Made with <a href="https://zillalib.github.io/" target="_blank" style="color:#2AF">ZillaLib Game Framework</a></div>
+	<script type='text/javascript'>
+	var ZL =
+	{
+		canvas: document.getElementById('zl_canvas'),
+		error: function(code, msg)
+		{
+			var L = function(code)
+			{
+				if (code == 'BOOT') return 'Error during startup. Your browser might not support WebAssembly. Please update it to the latest version.';
+				if (code == 'WEBGL') return 'Your browser or graphics card does not seem to support <a href="http://khronos.org/webgl/wiki/Getting_a_WebGL_Implementation" style="color:#000">WebGL</a>.<br>Find out how to get it <a href="http://get.webgl.org/" style="color:#000">here</a>.';
+				if (code == 'CRASH') return 'The game crashed.';
+				if (code == 'MEM') return 'The game ran out of memory.';
+			};
+			var zl_status = document.getElementById('zl_status'), zl_control = document.getElementById('zl_control');
+			zl_control.innerHTML = '<div style="text-align:center;background-color:#FFF;color:#000;padding:1.5em;width:540px;margin:2em auto">' + L(code) + '<br><br>(' + msg + ')</div>';
+			ZL.canvas.style.display = 'none';
+			zl_status.innerHTML = '';
+			zl_control.style.display = '';
+		},
+		started: function()
+		{
+			var zl_status = document.getElementById('zl_status'), zl_control = document.getElementById('zl_control');
+			zl_status.innerHTML = '';
+			zl_control.style.display = '';
+		},
+	};
+	</script>
+	<script src="TowerOfMinos.js" type="text/javascript"></script>
+</body>
+</html>
