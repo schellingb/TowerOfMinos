@@ -336,7 +336,7 @@ static void Update()
 		(ZL_Input::Held(ZLK_A) || ZL_Input::Held(ZLK_LEFT) ? -1.f : 0.f) +
 		(ZL_Input::Held(ZLK_D) || ZL_Input::Held(ZLK_RIGHT) ? 1.f : 0.f);
 
-	if (ZL_Input::Down(ZLK_SPACE) && (player.stand_landed || player.stand_falling || ZLSINCE(player.standTicks) < 80 || (player.jump > 0 && player.jump < player.jumps)))
+	if (ZL_Input::Down(ZLK_SPACE, true) && (player.stand_landed || player.stand_falling || ZLSINCE(player.standTicks) < 120 || (player.jump > 0 && player.jump < player.jumps)))
 	{
 		player.stand_landed = player.stand_falling = false;
 		player.vely = 3;
